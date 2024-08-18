@@ -51,15 +51,14 @@ app.post('/api/shorturl', function(req, res) {
   })
 });
 
-app.get('api/shortulr/:shourt_url', (req, res) => {
-  const shortUrl = req.params.shourt_url;
-
+app.get('/api/shorturl/:short_url', (req, res) => {
+  const shortUrl = req.params.short_url;
   const originalUrl = urlDatabase[shortUrl];
-
-  if (originalUrl){
-    res.redirect(originalUrl);
-  }else{
-    res.json({error: 'No short URL found for the given input'});
+  
+  if (originalUrl) {
+      res.redirect(originalUrl);
+  } else {
+      res.json({ error: 'No short URL found for the given input' });
   }
 })
 
